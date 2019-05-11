@@ -380,11 +380,15 @@ def get_plugin_runfiles(tool):
         runfiles = info.default_runfiles
         if runfiles.files:
             files += runfiles.files.to_list()
+            files += runfiles.root_symlinks.to_list()
+            files += runfiles.symlinks.to_list()
 
     if info.data_runfiles:
         runfiles = info.data_runfiles
         if runfiles.files:
             files += runfiles.files.to_list()
+            files += runfiles.root_symlinks.to_list()
+            files += runfiles.symlinks.to_list()
 
     return files
 
